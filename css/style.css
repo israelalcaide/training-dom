@@ -22,3 +22,16 @@
     background-color: var(--blue);
     color: var(--white);
   }
+
+  @media screen and (min-width: 768px) {
+    /* styles /
+    }
+    @media screen and (min-width: 992px) {
+    / styles /
+    }
+    @media screen and (min-width: 1200px) {
+    / styles /
+    }
+    @media screen and (min-width: 1400px) {
+    / styles */
+    }
