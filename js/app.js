@@ -1,30 +1,42 @@
-let nav = document.querySelector("nav");
-console.log(nav);
-let active = document.querySelector(".active");
-console.log(active);
-let first = document.querySelector("#first");
-console.log(first);
+let box1 = document.querySelector("section").firstElementChild;
+let box2 = box1.nextElementSibling;
+let box3 = box2.nextElementSibling;
 
-let headerAndParagraphs = document.querySelectorAll("h1,p");
-console.log(headerAndParagraphs);
-console.log(headerAndParagraphs[0].innerHTML);
+box1.classList.add("dark");
+box2.classList.add("light");
+setTimeout(() => {
+  box1.classList.remove("dark");
+  box2.classList.toggle("light");
+}, 2000);
+setTimeout(() => {
+  box2.classList.toggle("light");
+}, 1000);
 
-let firstLi = nav.firstElementChild.firstElementChild;
-console.log(firstLi);
-console.log(firstLi.parentElement.parentElement.previousElementSibling);
-console.log(first.nextElementSibling);
-
-let header = document.querySelector("header");
-console.log(header.firstChild.nextSibling.nextElementSibling);
-
-let ultimoParrafo = document.body.lastElementChild;
-console.log(ultimoParrafo.previousElementSibling.previousElementSibling);
-console.log(nav.lastElementChild.lastElementChild);
-console.log(document.body);
-
-let lista = document.querySelector("ul");
-console.log(lista.children[0].children[0].firstChild.nodeValue);
-console.log(first.firstChild.nodeValue);
-
-console.log(lista.childElementCount);
-console.log(lista.childNodes);
+if (box2.classList.contains("light")) {
+  box3.classList.add("dark");
+} else {
+  box2.classList.add("light");
+}
+let on = false;
+setInterval(() => {
+  if (
+    !box1.classList.contains("red") &&
+    !box2.classList.contains("yellow") &&
+    !box3.classList.contains("green")
+  ) {
+    box1.classList.add("red");
+    on = true;
+  } else if (box1.classList.contains("red") && on == false) {
+    box1.classList.remove("red");
+    box2.classList.add("yellow");
+    on = true;
+  } else if (box2.classList.contains("yellow") && on == false) {
+    box2.classList.remove("yellow");
+    box3.classList.add("green");
+    on = true;
+  } else if (box3.classList.contains("green") && on == false) {
+    box3.classList.remove("green");
+    box1.classList.add("red");
+  }
+  on = false;
+}, 3000);
