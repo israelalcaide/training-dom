@@ -18,38 +18,53 @@
   --cyan: #0dcaf0;
   --white: #fff;
   --gray: #adb5bd;
---dark: #292a2b;
+  --dark: #292a2b;
+}
+body {
+  display: flex;
+  justify-content: center;
 }
 section {
+  box-shadow: black 0px 0px 15px 5px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: var(--dark);
-  height: 50vh;
+  background-color: #e09524;
+  max-width: 17%;
+border-radius: 3em;
+  height: 70vh;
+  margin-top: 6em;
+  padding: 5em 1em 4em 1em;
 }
 div {
+  border-radius: 50%;
+  padding: 1em;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 20%;
-  height: 50%;
+  height: 20%;
   background-color: var(--dark);
   font-size: 5rem;
   transition: all 1s ease-in-out;
 }
 .green {
   background-color: var(--green);
-  color: white;
+  color: var(--dark);
   transition: all 1s ease-in-out;
+  box-shadow: rgb(10, 238, 10) 0px 0px 15px 5px;
+
 }
 .red {
   background-color: var(--red);
   color: var(--dark);
   transition: all 1s ease-in-out;
+  box-shadow: rgb(235, 22, 22) 0px 0px 15px 5px;
 }
 .yellow {
   background-color: var(--yellow);
   color: var(--dark);
   transition: all 1s ease-in-out;
+  box-shadow: rgb(202, 236, 8) 0px 0px 15px 5px;
 }
