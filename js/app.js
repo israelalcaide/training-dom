@@ -1,6 +1,19 @@
+let span = document.querySelector("span");
+
 let box1 = document.querySelector("section").firstElementChild;
 let box2 = box1.nextElementSibling;
 let box3 = box2.nextElementSibling;
+
+let user = document.querySelector("#user");
+let city = document.querySelector("#city");
+
+console.log(box1.dataset.boxNumber);
+console.log(user.dataset.name);
+user.dataset.name ="Sarah Connor"
+console.log(user.dataset.name);
+console.log(city.dataset.cityName);
+city.dataset.cityName="Madrid"
+console.log(city.dataset.cityName);
 
 box1.classList.add("dark");
 box2.classList.add("light");
@@ -17,6 +30,8 @@ if (box2.classList.contains("light")) {
 } else {
   box2.classList.add("light");
 }
+const trafficlight = () =>{  
+
 let on = false;
 setInterval(() => {
   if (
@@ -40,3 +55,4 @@ setInterval(() => {
   }
   on = false;
 }, 3000);
+}
