@@ -1,58 +1,46 @@
-let span = document.querySelector("span");
+let section = document.querySelector("section")
 
-let box1 = document.querySelector("section").firstElementChild;
-let box2 = box1.nextElementSibling;
-let box3 = box2.nextElementSibling;
+let div1 = section.firstElementChild
+let div2 = div1.nextElementSibling
+let div3 = div2.nextElementSibling
 
-let user = document.querySelector("#user");
-let city = document.querySelector("#city");
-
-console.log(box1.dataset.boxNumber);
-console.log(user.dataset.name);
-user.dataset.name ="Sarah Connor"
-console.log(user.dataset.name);
-console.log(city.dataset.cityName);
-city.dataset.cityName="Madrid"
-console.log(city.dataset.cityName);
-
-box1.classList.add("dark");
-box2.classList.add("light");
-setTimeout(() => {
-  box1.classList.remove("dark");
-  box2.classList.toggle("light");
-}, 2000);
-setTimeout(() => {
-  box2.classList.toggle("light");
-}, 1000);
-
-if (box2.classList.contains("light")) {
-  box3.classList.add("dark");
-} else {
-  box2.classList.add("light");
+div1.addEventListener("click", (e) => {
+  e.stopPropagation()
+console.log("div1");
+if(e.target.classList.contains("dark")){
+  e.target.classList.remove("dark");
 }
-const trafficlight = () =>{  
-
-let on = false;
-setInterval(() => {
-  if (
-    !box1.classList.contains("red") &&
-    !box2.classList.contains("yellow") &&
-    !box3.classList.contains("green")
-  ) {
-    box1.classList.add("red");
-    on = true;
-  } else if (box1.classList.contains("red") && on == false) {
-    box1.classList.remove("red");
-    box2.classList.add("yellow");
-    on = true;
-  } else if (box2.classList.contains("yellow") && on == false) {
-    box2.classList.remove("yellow");
-    box3.classList.add("green");
-    on = true;
-  } else if (box3.classList.contains("green") && on == false) {
-    box3.classList.remove("green");
-    box1.classList.add("red");
-  }
-  on = false;
-}, 3000);
+e.target.classList.remove("red");
+div2.classList.add("dark");
+div3.classList.add("dark");
+div2.classList.remove("yellow");
+div3.classList.remove("green");
+});
+div2.addEventListener("click", (e) => {
+console.log("div2");
+if(e.target.classList.contains("dark")){
+  e.target.classList.remove("dark");
 }
+e.target.classList.add("yellow");
+div1.classList.add("dark");
+div3.classList.add("dark");
+div1.classList.remove("red");
+div3.classList.remove("green");
+
+});
+div3.addEventListener("click", (e) => {
+console.log("div3");
+if(e.target.classList.contains("dark")){
+  e.target.classList.remove("dark");
+}
+e.target.classList.add("green");
+div1.classList.add("dark");
+div2.classList.add("dark");
+div1.classList.remove("green");
+div2.classList.remove("yellow");
+});
+
+section.addEventListener("click", (e)=> {
+  console.log(("click de la seccion"));
+})
+
