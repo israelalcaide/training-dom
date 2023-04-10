@@ -1,31 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <header>
-        Company<span>Logo</span>
-        <h1>Hello World</h1>
-        <nav>
-            <ul>
-                <li><a href="" class="active">link 1</a></li>
-                <li><a href="">link 2</a></li>
-                <li><a href="">link 3</a></li>
-
-            </ul>
-        </nav>
-    </header>
-    <p id="first">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, quidem!</p>
-    <p>Lorem Ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas.</p>
-    <p>Last ipsum dolor sit amet consectetur adipisicing elit. Iusto, laboriosam.</p>
-</body>
-<script src="js/app.js"></script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+    <script
+      src="https://kit.fontawesome.com/1594f4d372.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>Tasks List</h1>
+      <div class="alert dismissible">
+        Please, insert some text.
+        <i class="fa-solid fa-square-xmark"></i>
+      </div>
+      <form name="new-task">
+        <label for="task">
+          <input
+            type="text"
+            name="task"
+            placeholder="Add a new task"
+            id="task"
+          />
+          <div class="arrow">
+            <i class="fa-solid fa-right-long fa-2x"></i>
+          </div>
+        </label>
+      </form>
+      <div class="container">
+        <table>
+          <thead>
+            <tr>
+              <th>Don't forget to do this!</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="0">
+              <td>
+                <i class="fa-solid fa-circle-check"></i>
+                <span contenteditable="true" class="task">Learn HTML!</span>
+              </td>
+              <td>
+                <span class="fa-stack fa-2x">
+                  <i class="fa-solid fa-square fa-stack-2x"></i>
+                  <i class="fa-solid fa-stack-1x fa-pencil fa-inverse"></i>
+                </span>
+              </td>
+              <td>
+                <span class="fa-stack fa-2x">
+                  <i class="fa-solid fa-square fa-stack-2x"></i>
+                  <i class="fa-solid fa-stack-1x fa-trash fa-inverse"></i>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
 </html>

@@ -1,30 +1,69 @@
-let nav = document.querySelector("nav");
-console.log(nav);
-let active = document.querySelector(".active");
-console.log(active);
-let first = document.querySelector("#first");
-console.log(first);
+window.addEventListener("load", () => {
+  //variables
+  let id = 0;
+  let text = "";
+  let alert = document.querySelector(".alert");
+  let close = alert.firstElementChild;
+  let input = document.querySelector("input");
+  let arrow = document.querySelector(".arrow");
+  let done = document.querySelectorAll(".fa-circle-check");
+  let edit = document.querySelectorAll(".fa-pencil");
+  let trash = document.querySelectorAll(".fa-trash");
+  let taskContent = document.querySelectorAll(".task");
+  //   eventos
+  close.addEventListener("click", () => {
+    // todo
+  });
+  input.addEventListener("focus", () => {
+    // todo
+  });
+  arrow.addEventListener("click", () => {
+    // todo
+  });
+  done.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      // todo
+    });
+  });
+  edit.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      // todo
+    });
+  });
+  trash.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      // todo
+    });
+  });
+  taskContent.forEach((task) => {
+    task.addEventListener("click", () => {
+      // todo
+    });
+  });
+});
 
-let headerAndParagraphs = document.querySelectorAll("h1,p");
-console.log(headerAndParagraphs);
-console.log(headerAndParagraphs[0].innerHTML);
+// funciones
 
-let firstLi = nav.firstElementChild.firstElementChild;
-console.log(firstLi);
-console.log(firstLi.parentElement.parentElement.previousElementSibling);
-console.log(first.nextElementSibling);
-
-let header = document.querySelector("header");
-console.log(header.firstChild.nextSibling.nextElementSibling);
-
-let ultimoParrafo = document.body.lastElementChild;
-console.log(ultimoParrafo.previousElementSibling.previousElementSibling);
-console.log(nav.lastElementChild.lastElementChild);
-console.log(document.body);
-
-let lista = document.querySelector("ul");
-console.log(lista.children[0].children[0].firstChild.nodeValue);
-console.log(first.firstChild.nodeValue);
-
-console.log(lista.childElementCount);
-console.log(lista.childNodes);
+const generateRow = (id, text) => {
+  let newRow = document.createElement("tr");
+  newRow.setAttribute("id", id);
+  newRow.innerHTML = `
+  <td>
+  <i class="fa-solid fa-circle-check"></i>
+  <span contenteditable="true" class="task">${text}</span>
+</td>
+<td>
+  <span class="fa-stack fa-2x">
+    <i class="fa-solid fa-square fa-stack-2x"></i>
+    <i class="fa-solid fa-stack-1x fa-pencil fa-inverse"></i>
+  </span>
+</td>
+<td>
+  <span class="fa-stack fa-2x">
+    <i class="fa-solid fa-square fa-stack-2x"></i>
+    <i class="fa-solid fa-stack-1x fa-trash fa-inverse"></i>
+  </span>
+</td>
+  `;
+  return newRow;
+};
