@@ -1,68 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task List</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="shopping-cart website with drag&amp;drop functionality"
+    />
+    <meta name="author" content="CODE SPACE TEAM" />
+    <title>Shopping Cart</title>
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome Icons -->
     <script
       src="https://kit.fontawesome.com/1594f4d372.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- Custom styles for this template 
+    -->
+    <link href="css/style.css" rel="stylesheet" />
   </head>
-  <body>
-    <div class="main">
-      <h1>Tasks List</h1>
-      <div class="alert dismissible">
-        Please, insert some text.
-        <i class="fa-solid fa-square-xmark"></i>
-      </div>
-      <form name="new-task">
-        <label for="task">
-          <input
-            type="text"
-            name="task"
-            placeholder="Add a new task"
-            id="task"
-          />
-          <div class="arrow">
-            <i class="fa-solid fa-right-long fa-2x"></i>
+
+  <body class="bg-light">
+    <header
+      class="d-flex flex-column flex-sm-row justify-content-between align-items-center py-4 px-sm-5 mb-3 border-bottom shadow-sm fixed-top bg-success text-white"
+    >
+      <h5 class="d-flex align-items-center my-2 me-md-auto font-weight-bold">
+        <i class="fa-solid fa-bag-shopping fa-2x"></i>
+        <span class="logo ms-3">Shopping Cart</span>
+      </h5>
+      <nav class="d-flex align-items-center my-2 my-md-0 me-md-3">
+        <a
+          class="p-2"
+          href="#"
+          data-bs-toggle="modal" data-bs-target="#shoppingCart"
+          id="cart"
+        >
+          <i class="fa-solid fa-basket-shopping fa-3x me-sm-5 me-3"></i>
+        </a>
+        <a class="btn btn-dark btn-lg" href="#">Sign Up</a>
+      </nav>
+    </header>
+    <!-- Modal Cart -->
+    <div
+      class="modal fade"
+      id="shoppingCart"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="shoppingCartLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
+          <div class="d-flex aling-items-center justify-content-between px-4 modal-header">
+            <i class="fa-solid fa-cart-shopping fa-2x me-3 text-success"></i>
+            <h5 class="modal-title text-dark" id="shoppingCartLabel">
+              <strong>Your Shopping</strong>
+            </h5>
+            <button
+              type="button"
+              class="close text-danger font-weight-bolder border-0 bg-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">
+                <i class="fa-solid fa-circle-xmark fa-2x"></i>
+              </span>
+            </button>
           </div>
-        </label>
-      </form>
-      <div class="container">
-        <table>
-          <thead>
-            <tr>
-              <th>Don't forget to do this!</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="0">
-              <td>
-                <i class="fa-solid fa-circle-check"></i>
-                <span contenteditable="true" class="task">Learn HTML!</span>
-              </td>
-              <td>
-                <span class="fa-stack fa-2x">
-                  <i class="fa-solid fa-square fa-stack-2x"></i>
-                  <i class="fa-solid fa-stack-1x fa-pencil fa-inverse"></i>
-                </span>
-              </td>
-              <td>
-                <span class="fa-stack fa-2x">
-                  <i class="fa-solid fa-square fa-stack-2x"></i>
-                  <i class="fa-solid fa-stack-1x fa-trash fa-inverse"></i>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div class="modal-body">
+            <table class="table table-striped table-hover">
+              <thead class="thead-dark text-center">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Dinamically add products -->
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+                  <h4>
+                    <i class="fa-solid fa-money-bills fa-2x me-2"></i>
+                    Subtotal: <span id="total-count">0</span> €
+                  </h4>
+                </div>
+                <div class="col text-right">
+                  <button
+                    type="button"
+                    class="disabled btn btn-danger mb-2"
+                    id="empty-cart"
+                  >
+                    Empty this cart
+                  </button>
+                  <button
+                    type="button"
+                    class="disabled btn btn-primary mb-2 ml-2"
+                    id="btn-purchase"
+                    data-dismiss="modal"
+                    data-toggle="modal"
+                  >
+                    Check Out!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Modal Alerts -->
+
+    <div
+      class="modal fade"
+      id="cartPurchased"
+      tabindex="-1"
+      aria-labelledby="alert1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content alert alert-success" role="alert">
+          <p class="text-center alert-heading pt-3">
+            <strong>Done!</strong> Thank you for your purchase!
+            <i class="fa-solid fa-face-laugh-wink"></i>
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-thumbs-up"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="addedToCart"
+      tabindex="-1"
+      aria-labelledby="alert2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content alert alert-info" role="alert">
+          <p class="text-center alert-heading pt-3">
+            <strong>Done!</strong> Product had added to your wishlist.
+            <i class="fa-solid fa-circle-check"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="alreadyAddedToCart"
+      tabindex="-1"
+      aria-labelledby="alert3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content alert alert-warning" role="alert">
+          <p class="text-center alert-heading pt-3">
+            <strong>Already added!</strong> Go to your cart for change quantity.
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--Info section -->
+    <section class="pricing-header p-3 pt-md-5 pb-md-4 text-center">
+      <h1 class="display-4">Drag&amp;Drop</h1>
+      <p class="lead mb-0">You can add your products to the cart easily.</p>
+      <p class="lead">Drag the image, and it will be added to your purchase.</p>
+    </section>
+
+    <!--Producs container -->
+    <main class="text-center px-5 px-sm-3">
+      <div
+        class="card-deck mb-3 d-flex flex-wrap justify-content-around"
+        id="products-list"
+      >
+        <!-- Add your products here -->
+      </div>
+    </main>
+    <footer
+      class="d-md-flex justify-content-center align-items-center p-4 my-5 p-md-5 border-top text-center bg-dark text-white"
+    >
+      Made with <i class="fa-solid fa-heart text-danger mx-1 fa-beat"></i> by
+      CODE SPACE Team - <span class="date"></span>
+    </footer>
+
+    <!-- Popper and JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <!-- custom js -->
+    <script src="js/core.js" async></script>
     <script src="js/app.js"></script>
   </body>
 </html>
