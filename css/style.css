@@ -1,37 +1,96 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-:root {
-    --blue: #0d6efd;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #d63384;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #198754;
-    --teal: #20c997;
-    --cyan: #0dcaf0;
-    --white: #fff;
-    --gray: #adb5bd;
-    --ma: margin-auto;
-  }
-  h1 {
-    background-color: var(--blue);
-    color: var(--white);
-  }
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+}
 
-  @media screen and (min-width: 768px) {
-    /* styles /
-    }
-    @media screen and (min-width: 992px) {
-    / styles /
-    }
-    @media screen and (min-width: 1200px) {
-    / styles /
-    }
-    @media screen and (min-width: 1400px) {
-    / styles */
-    }
+:root {
+  /* font-family: ; */
+  font-size: 0.785rem;
+  --blue: #0d6efd;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #d63384;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #198754;
+  --teal: #20c997;
+  --cyan: #0dcaf0;
+  --white: #fff;
+  --gray: #adb5bd;
+  --dark: #282828;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+body {
+  background-color: var(--green);
+  padding: 1em 2em;
+  font-family: "Poppins", sans-serif;
+}
+section#search {
+  background-color: var(--dark);
+  padding: 2em;
+}
+section#search input {
+  width: 80%;
+  padding: 1em;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+section#search button {
+  background-color: var(--blue);
+  padding: 1em;
+  border-radius: 0.3rem;
+}
+section.movies .card{
+  margin-top: 2em;
+  background-color: var(--gray);
+  display: flex;
+  /* justify-content: flex-start; */
+  border-radius: 0.3rem;
+}
+section.movies .card .img{
+  width: 100%;
+}
+section.movies .card .img img{
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+section.movies .card .body{
+  padding: 1em;
+}
+section.movies .card .body h2 .year{
+  color: var(--pink);
+}
+section.movies .card .body ul{
+  display: flex;
+  margin-bottom: 1em;
+}
+section.movies .card .body ul li{
+  margin-right: 1em;
+  color: var(--indigo);
+}
+
+@media screen and (min-width: 768px) {
+  /* styles */
+}
+@media screen and (min-width: 992px) {
+  /* styles */
+}
+@media screen and (min-width: 1200px) {
+  /* styles */
+}
+@media screen and (min-width: 1400px) {
+  /* styles */
+}
